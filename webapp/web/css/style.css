@@ -1,0 +1,112 @@
+html{
+    font-family: "Courier New",
+    Courier, monospace !important;
+}
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.replyArea{
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  padding: 3px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.errorMessage{
+	color:red;
+	font-size: 20px;
+}
+.htmlTable{
+    position: relative;
+	border:1px solid black;
+	border-collapse: collapse;
+	left: 0px; top: 0px;
+	min-width: 960px;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+table.htmlTable th{
+	background-color:#B5B3B3;
+	padding:2px;
+	text-align: cener;
+}
+
+table.htmlTable td{
+    padding:2px;
+    text-align: left;
+}
+
+.page{
+    border: none;
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.server_occupation_status{
+    width:400px;
+    height:300px;
+    padding: 0 5px;
+    overflow: auto;
+}
+.serverliststatus{
+    border-right: 1px solid black;
+
+}
+
+.xbutton{
+    cursor: pointer;
+    position:absolute;
+    top: 0px;
+    left: auto;
+    right: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 10000;
+}
+
+.personalizationArea{
+    padding: 3px;
+}
+
+.alert{
+      position: fixed;
+      top: 3px;
+      right: 3px;
+      left: auto;
+    }
+
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.loading{
+    position: absolute;
+    top: 70px;
+    left: 50%;
+}
+
+.bar {
+    height: 20px;
+    padding: 0px;
+    margin-top: -20px;
+}
+
+.btn-separator:after {
+    content: ' ';
+    display: block;
+    float: left;
+    background: #ADADAD;
+    margin: 0 10px;
+    height: 34px;
+    width: 1px;
+}

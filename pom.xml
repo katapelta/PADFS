@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.unipi.pad.padfs</groupId>
+  <artifactId>padfs</artifactId>
+  <version>0.1-developer</version>
+  <name>padfs</name>
+  <description>simple distributed file system</description>
+  <packaging>jar</packaging>
+  
+	<parent>
+	     <groupId>org.springframework.boot</groupId>
+	     <artifactId>spring-boot-starter-parent</artifactId>
+	     <version>1.2.5.RELEASE</version>
+	</parent>
+	 
+   <dependencies>
+   <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
+	<dependency>
+	    <groupId>org.json</groupId>
+	    <artifactId>json</artifactId>
+	    <version>20160810</version>
+	</dependency>
+   	<dependency>
+	   <groupId>org.apache.httpcomponents</groupId>
+	   <artifactId>httpcore</artifactId>
+	   <version>4.4.4</version>
+	</dependency>
+	<dependency>
+	   <groupId>org.apache.httpcomponents</groupId>
+	   <artifactId>httpclient</artifactId>
+	</dependency> 
+	 <dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpasyncclient</artifactId>
+	</dependency>
+  <dependency>
+     <groupId>org.fusesource.jansi</groupId>
+     <artifactId>jansi</artifactId>
+     <version>1.12</version>
+  </dependency> 
+  <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
+	<dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+    </dependency>
+	<dependency> <!-- DEPENDENCY TO READ THE NUMBER OF CHARACTER IN THE CONSOLE --> 
+	  <groupId>jline</groupId>
+	  <artifactId>jline</artifactId>
+	  <version>2.12</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.0</version>
+	</dependency>
+
+  </dependencies>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test/test</testSourceDirectory>
+    <resources>
+		<resource>
+			<directory>src</directory>
+            <includes>
+                <include>webapp/**</include>
+            </includes>
+			<excludes>
+	          <exclude>.sync/**</exclude>
+			  <exclude>Rubbish/**</exclude>
+              <exclude>.debris/**</exclude>
+			</excludes>	        
+	    </resource>
+		<resource>
+			<directory>webapp</directory>
+			<includes>
+                <include>**/*.*</include>
+            </includes>
+	    </resource>
+
+	</resources>
+	
+
+  	<plugins>
+      <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        
+        <configuration>
+		  <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>padfsThreads.Padfs</mainClass>
+              <classpathPrefix>padfs/</classpathPrefix>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+		
+        <configuration>
+		    <compilerArgument>-Xlint:unchecked</compilerArgument>
+            <compilerArgument>-Xlint:deprecation</compilerArgument>
+			<excludes>
+                <exclude>Rubbish/**</exclude>
+                <exclude>.sync/**</exclude>
+                <exclude>.debris/**</exclude>
+            </excludes>
+		  <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+        <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <configuration>
+                <filesets>
+                    <fileset>
+                        <directory>./</directory>
+                        <includes>
+                            <include>*.db</include>
+                            <include>*.log</include>
+                        </includes>
+                       <!--
+                        <excludes>
+                            <exclude>**/important.log</exclude>
+                        </excludes>
+                        -->
+                        <followSymlinks>false</followSymlinks>
+                    </fileset>
+                </filesets>
+            </configuration>
+        </plugin>
+            
+		
+    </plugins>
+  
+  
+  
+  </build>
+  
+  
+  
+  
+  <repositories>
+	<repository>
+		<id>spring-releases</id>
+		<url>https://repo.spring.io/libs-release</url>
+	</repository>
+   </repositories>
+   
+   <pluginRepositories>
+	<pluginRepository>
+		<id>spring-releases</id>
+		<url>https://repo.spring.io/libs-release</url>
+	</pluginRepository>
+   </pluginRepositories>
+  
+
+</project>

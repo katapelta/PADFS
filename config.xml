@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
+	<server>
+		<id>1</id>
+		<ip>*</ip>
+		<port>8091</port>		
+	</server>
+	<system>
+		<retryNumber>5</retryNumber>
+		<waitMillisecondsBeforeRetry>3000</waitMillisecondsBeforeRetry>
+	</system>
+    <log>
+    	<path>target/padFs.log</path>
+    	<overwrite>true</overwrite> <!--  IF FALSE CREATE NEW FILE WITH DATE AND TIME -->
+    	<level>DEBUG</level>
+    </log>
+    <fileSystem>
+    	<path>FS</path>
+    	<TMPPath>FS/temp</TMPPath>
+    </fileSystem>
+
+    <serverList>
+    	<server><ip>localhost</ip><port>8091</port></server>
+    	<server><ip>localhost</ip><port>8092</port></server>
+    	<server><ip>localhost</ip><port>8093</port></server>
+    </serverList>
+</configuration>
+
